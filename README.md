@@ -1,1 +1,1 @@
-# log-go
+# golog
