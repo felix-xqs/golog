@@ -1,1 +1,5 @@
 # golog
+
+参考log_test中两个单元测试方法，一个使用普通的打印日志，带有time，serviceName等参数，一个打印string，用于打印单纯的行为日志 ，使用FileConfig的console参数来区分
+  
+DebugC等用于使用gin框架context，可以直接调用context中key为traceID的值打印在日志中

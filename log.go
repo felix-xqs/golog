@@ -55,30 +55,6 @@ func (logger *Logger) SetHandlers(hs *Handlers) {
 	logger.h = hs
 }
 
-func DebugW(msg string, m map[string]interface{}) {
-	logger.h.LogWith(context.Background(), DebugLevel, msg, m)
-}
-
-func InfoW(msg string, m map[string]interface{}) {
-	logger.h.LogWith(context.Background(), InfoLevel, msg, m)
-}
-
-func WarnW(msg string, m map[string]interface{}) {
-	logger.h.LogWith(context.Background(), WarnLevel, msg, m)
-}
-
-func ErrorW(msg string, m map[string]interface{}) {
-	logger.h.LogWith(context.Background(), ErrorLevel, msg, m)
-}
-
-func FatalW(msg string, m map[string]interface{}) {
-	logger.h.LogWith(context.Background(), FatalLevel, msg, m)
-}
-
-func PanicW(msg string, m map[string]interface{}) {
-	logger.h.LogWith(context.Background(), PanicLevel, msg, m)
-}
-
 func Debug(format string, args ...interface{}) {
 	logger.h.Log(context.Background(), DebugLevel, format, args...)
 }
@@ -101,4 +77,28 @@ func Panic(format string, args ...interface{}) {
 
 func Fatal(format string, args ...interface{}) {
 	logger.h.Log(context.Background(), FatalLevel, format, args...)
+}
+
+func DebugC(ctx context.Context, format string, args ...interface{}) {
+	logger.h.Log(ctx, DebugLevel, format, args...)
+}
+
+func InfoC(ctx context.Context, format string, args ...interface{}) {
+	logger.h.Log(ctx, InfoLevel, format, args...)
+}
+
+func WarnC(ctx context.Context, format string, args ...interface{}) {
+	logger.h.Log(ctx, WarnLevel, format, args...)
+}
+
+func ErrorC(ctx context.Context, format string, args ...interface{}) {
+	logger.h.Log(ctx, ErrorLevel, format, args...)
+}
+
+func PanicC(ctx context.Context, format string, args ...interface{}) {
+	logger.h.Log(ctx, PanicLevel, format, args...)
+}
+
+func FatalC(ctx context.Context, format string, args ...interface{}) {
+	logger.h.Log(ctx, FatalLevel, format, args...)
 }
