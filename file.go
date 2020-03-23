@@ -6,7 +6,6 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
-	"os"
 	"path/filepath"
 	"runtime"
 	"strconv"
@@ -83,10 +82,10 @@ func NewFileHandler(c *FileConfig) *FileHandler {
 		allCore = append(allCore, errCore, infoCore)
 	}
 
-	if c.Console {
-		consoleDebugging := zapcore.Lock(os.Stdout)
-		allCore = append(allCore, zapcore.NewCore(xLogEncoder, consoleDebugging, infoPriority))
-	}
+	//if c.Console {
+	//	consoleDebugging := zapcore.Lock(os.Stdout)
+	//	allCore = append(allCore, zapcore.NewCore(xLogEncoder, consoleDebugging, infoPriority))
+	//}
 
 	core := zapcore.NewTee(allCore...)
 
