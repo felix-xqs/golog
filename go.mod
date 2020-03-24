@@ -1,4 +1,4 @@
-module golog
+module github.com/felix-xqs/golog
 
 go 1.12
 
